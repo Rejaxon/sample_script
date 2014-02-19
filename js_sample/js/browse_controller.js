@@ -36,19 +36,29 @@ $(document).ready(function(){
    * 
    * 桁制限は、HTMLのmaxlengthに任せる. 
    */
-  $.utils.format.numeric('input.js-currency', '￥', true,  0, function (value){
-    // TODO: 標準アラートダイアログに. フロートで勝手に消えるタイプの方が良いかも
-    alert(value + '：　通貨として入力できません。');
+  $.utils.format.numeric('input.js-currency', '￥', true,  0, function (oldVal, input){
+    // TODO: 下記３行も共通関数としてライブラリに。 CSSのデザインに合わせてからだが。
+    $(input).closest(".form-group").addClass("has-error").change(function() {
+      $(this).removeClass("has-error");
+    });
+    $("#js-alert-modal-message").html('通貨のフォーマット不正です。');
+    $("#js-alert-modal").modal();
   });
   
-  $.utils.format.numeric('input.js-numeric', '', true, 0, function (value){
-    // TODO: 標準アラートダイアログに．フロートで勝手に消えるタイプの方が良いかも
-    alert(value + '：　数値として入力できません。');
+  $.utils.format.numeric('input.js-numeric', '', true, 0, function (oldVal, input){
+    $(input).closest(".form-group").addClass("has-error").change(function() {
+      $(this).removeClass("has-error");
+    });
+    $("#js-alert-modal-message").html('数値で入力してください。');
+    $("#js-alert-modal").modal();
   });
   
-  $.utils.format.string('input.js-alpha-numeric', '^[0-9a-zA-Z]*$', function (value){
-    // TODO: 標準アラートダイアログに．フロートで勝手に消えるタイプの方が良いかも
-    alert(value + '：　半角英数値で入力してください。');
+  $.utils.format.string('input.js-alpha-numeric', '^[0-9a-zA-Z]*$', function (oldVal, input){
+    $(input).closest(".form-group").addClass("has-error").change(function() {
+      $(this).removeClass("has-error");
+    });
+    $("#js-alert-modal-message").html('英数値で入力してください。');
+    $("#js-alert-modal").modal();
   })
   
   /**
@@ -57,10 +67,12 @@ $(document).ready(function(){
    * 
    * js-copy-[任意]のclass名を指定したinputタグ値を、同一名のclassを持つinputタグにコピー
    */
-  $(":input[class^=js-copy-]").change(function() {
+  $(":input[class*=js-copy-]").change(function() {
     var value = $(this).val();
     var clzArray = $(this).attr("class").split(' ');
+    console.log(clzArray)
     $.each(clzArray, function(i, v){
+      console.log(v)
       if (v.indexOf("js-copy-") == 0) {
         var clzSelector = 'input.' + v;
         $(clzSelector).filter(function () {

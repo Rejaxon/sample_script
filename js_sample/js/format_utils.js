@@ -25,11 +25,11 @@ $.utils.format.numeric = function(selectorStr, symbol, thousandSep, fraction, in
     $(this).removeAttr("name");
     return '<input type="hidden" name="' + nameAttr + '" />';
     
-  }).change(function() {
+  }).blur(function() {
     var value = $(this).val();
     if (value.match(/[^0-9]/)) { // 入力値チェック
       $(this).val('');
-      if (inputErrorFunc !== undefined)  inputErrorFunc(value);
+      if (inputErrorFunc !== undefined)  inputErrorFunc(value, $(this));
       return false;
     } 
     $(this).next().val(value);
@@ -60,7 +60,7 @@ $.utils.format.string = function(selectorStr, regexp, inputErrorFunc) {
     var regexpObj = new RegExp(regexp);
     if (! value.match(regexpObj)) { // 入力値チェック
       $(this).val('');
-      if (inputErrorFunc !== undefined)  inputErrorFunc(value);
+      if (inputErrorFunc !== undefined)  inputErrorFunc(value, $(this));
       return false;
     }
   })

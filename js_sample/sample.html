@@ -5,9 +5,15 @@
   <title>
   </title>
   
-  <!-- library -->
+  <!-- css library -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+  
+  <!-- js library -->
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="js/lib/jquery.formatCurrency-1.4.0.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  
   
   <!-- 設定値 -->
   <script type="text/javascript" src="js/settings.js"></script>
@@ -23,28 +29,125 @@
   
 </head>
 <body>
-  <div id="container">
+  <div class="container">
     <div id="header">
       <h1>JSサンプル</h1>
     </div>
     <div id="content">
-      <form method="post" action="sample2.html" class="">
-        <label for="price">単価 <input id="price" name="price" type="text" value="" class="js-currency"></label><br/>
-        <label for="amount">金額 <input id="amount" name="amount" type="text" value="" class="js-currency"></label><br/>
-        <label for="num1">数１ <input id="num1" name="num1" type="text" value="" class="js-numeric"></label><br/>
-        <label for="num2">数２ <input id="num2" name="num2" type="text" value="" class="js-numeric"></label><br/>
-        <label for="memo">備考 <input id="memo" name="memo" type="text" value="" class=""></label><br/>
-        <label for="alpha-numeric">半角英数字 <input id="alpha-numeric" name="alpha-numeric" type="text" value="" class="js-alpha-numeric"></label><br/>
-        <label for="zenkaku">全角変換 <input id="zenkaku" name="zenkaku" type="text" value="" class="js-to-zenkaku"></label><br/>
-        <label for="from1">From1 <input id="from1" name="from1" type="text" value="" class="js-copy-01"></label>～<label for="to1">From2 <input id="to1" name="to1" type="text" value="" class="js-copy-01"></label><br/>
-        <label for="from2">From2 <input id="from2" name="from2" type="text" value="" class="js-copy-02"></label>～<label for="to1">To2 <input id="to2" name="to2" type="text" value="" class="js-copy-02"></label><br/>
-        <input type="submit" class="">
+      <form method="post" action="sample2.html" class="form-horizontal">
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="price" class="control-label">単価</label>
+          </div>
+          <div class="col-md-2">
+            <input id="price" name="price" type="text" value="" class="form-control js-currency" maxlength="8">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="amount" class="control-label">金額</label>
+          </div>
+          <div class="col-md-2">
+            <input id="amount" name="amount" type="text" value="" class="form-control js-currency"  maxlength="8">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="num1" class="control-label">数１</label>
+          </div>
+          <div class="col-md-2">
+            <input id="num1" name="num1" type="text" value="" class="form-control js-numeric"  maxlength="8">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="num2" class="control-label">数２</label>
+          </div>
+          <div class="col-md-2">
+            <input id="num2" name="num2" type="text" value="" class="form-control js-numeric"  maxlength="8">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="memo" class="control-label">備考</label>
+          </div>
+          <div class="col-md-2">
+            <input id="memo" name="memo" type="text" value="" class="form-control">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="alpha-numeric" class="control-label">半角英数字</label>
+          </div>
+          <div class="col-md-2">
+            <input id="alpha-numeric" name="alpha-numeric" type="text" value="" class="form-control js-alpha-numeric" maxlength="16">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="zenkaku" class="control-label">全角変換</label>
+          </div>
+          <div class="col-md-2">
+            <input id="zenkaku" name="zenkaku" type="text" value="" class="form-control js-to-zenkaku">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="from1" class="control-label">年月日</label>
+          </div>
+          <div class="col-md-2">
+            <input id="from1" name="from1" type="text" value="" class="form-control js-copy-01">
+          </div>
+          <span class="col-md-1">～</span>
+          <div class="col-md-2">
+            <input id="to1" name="to1" type="text" value="" class="form-control js-copy-01">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-2">
+            <label for="from2" class="control-label">年月日</label>
+          </div>
+          <div class="col-md-2">
+            <input id="from2" name="from2" type="text" value="" class="form-control js-copy-02">
+          </div>
+          <span class="col-md-1">～</span>
+          <div class="col-md-2">
+            <input id="to2" name="to2" type="text" value="" class="form-control js-copy-02">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
       </form>
       <br/>
-      <a href="sample2.html">サンプル２へ</a>
+      <h3><a href="sample2.html">サンプル２へ</a></h3>
     </div>
     <div id="footer">
     </div>
   </div>
+  
+  
+  <!-- alert modal. 共通部品としてレイアウトに定義 -->
+  <div id="js-alert-modal" class="modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">入力エラー</h4>
+        </div>
+        <div class="modal-body">
+          <p><span id="js-alert-modal-message"></span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  
 </body>
 </html>
