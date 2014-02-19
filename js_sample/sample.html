@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>
+  </title>
+  
+  <!-- library -->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery.formatCurrency-1.4.0.min.js"></script>
+  
+  <!-- 設定値 -->
+  <script type="text/javascript" src="js/settings.js"></script>
+  
+  <!-- utility -->
+  <script type="text/javascript" src="js/convert_utils.js"></script>
+  <script type="text/javascript" src="js/format_utils.js"></script>
+  <script type="text/javascript" src="js/ajax_utils.js"></script>
+  
+  <!-- 自動適用系  -->
+  <script type="text/javascript" src="js/browse_controller.js"></script>
+  
+  
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <h1>JSサンプル</h1>
+    </div>
+    <div id="content">
+      <form method="post" action="sample2.html" class="">
+        <label for="price">単価 <input id="price" name="price" type="text" value="" class="js-currency"></label><br/>
+        <label for="amount">金額 <input id="amount" name="amount" type="text" value="" class="js-currency"></label><br/>
+        <label for="num1">数１ <input id="num1" name="num1" type="text" value="" class="js-numeric"></label><br/>
+        <label for="num2">数２ <input id="num2" name="num2" type="text" value="" class="js-numeric"></label><br/>
+        <label for="memo">備考 <input id="memo" name="memo" type="text" value="" class=""></label><br/>
+        <label for="alpha-numeric">半角英数字 <input id="alpha-numeric" name="alpha-numeric" type="text" value="" class="js-alpha-numeric"></label><br/>
+        <label for="zenkaku">全角変換 <input id="zenkaku" name="zenkaku" type="text" value="" class="js-to-zenkaku"></label><br/>
+        <label for="from1">From1 <input id="from1" name="from1" type="text" value="" class="js-copy-01"></label>～<label for="to1">From2 <input id="to1" name="to1" type="text" value="" class="js-copy-01"></label><br/>
+        <label for="from2">From2 <input id="from2" name="from2" type="text" value="" class="js-copy-02"></label>～<label for="to1">To2 <input id="to2" name="to2" type="text" value="" class="js-copy-02"></label><br/>
+        <input type="submit" class="">
+      </form>
+      <br/>
+      <a href="sample2.html">サンプル２へ</a>
+    </div>
+    <div id="footer">
+    </div>
+  </div>
+</body>
+</html>
