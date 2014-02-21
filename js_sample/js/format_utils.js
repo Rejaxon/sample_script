@@ -15,10 +15,10 @@ $.utils.format = new Object();
  * @param {string} symbol 通貨マーク
  * @param {boolean} thousandSep 千単位のカンマセパレーターの有無
  * @param {string} fraction 小数点桁数
- * @param {string} inputErrorFunc フォーマットエラー時のダイアログ呼出用コールバック関数
+ * @param {string} invalidFunc フォーマットエラー時のダイアログ呼出用コールバック関数
  * 
  */
-$.utils.format.numeric = function(selectorStr, symbol, thousandSep, fraction, inputErrorFunc) {
+$.utils.format.numeric = function(selectorStr, symbol, thousandSep, fraction, invalidFunc) {
   $(selectorStr).after(function() {
     var nameAttr = $(this).attr("name");
     if (nameAttr === undefined) alert("Bug: No exist name attribute.");
@@ -28,8 +28,7 @@ $.utils.format.numeric = function(selectorStr, symbol, thousandSep, fraction, in
   }).blur(function() {
     var value = $(this).val();
     if (value.match(/[^0-9]/)) { // 入力値チェック
-      $(this).val('');
-      if (inputErrorFunc !== undefined)  inputErrorFunc(value, $(this));
+      if (invalidFunc !== undefined)  invalidFunc($(this));
       return false;
     } 
     $(this).next().val(value);
@@ -51,16 +50,15 @@ $.utils.format.numeric = function(selectorStr, symbol, thousandSep, fraction, in
  * 
  * @param {string} selectorStr JQuery Selectorの文字列
  * @param {string} regexp 正規表現文字列
- * @param {string} inputErrorFunc フォーマットエラー時のダイアログ呼出用コールバック関数
+ * @param {string} invalidFunc フォーマットエラー時のダイアログ呼出用コールバック関数
  * 
  */
-$.utils.format.string = function(selectorStr, regexp, inputErrorFunc) {
-  $(selectorStr).change(function() {
+$.utils.format.string = function(selectorStr, regexp, invalidFunc) {
+  $(selectorStr).blur(function() {
     var value = $(this).val();
     var regexpObj = new RegExp(regexp);
     if (! value.match(regexpObj)) { // 入力値チェック
-      $(this).val('');
-      if (inputErrorFunc !== undefined)  inputErrorFunc(value, $(this));
+      if (invalidFunc !== undefined)  invalidFunc($(this));
       return false;
     }
   })

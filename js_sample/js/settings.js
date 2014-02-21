@@ -13,6 +13,10 @@ $.constant.ajax.status.key = 'errorStatus';
 $.constant.ajax.status.success = 'SUCCESS';
 $.constant.ajax.status.error = 'ERROR';
 
+$.constant.ui = new Object();
+$.constant.ui.form = new Object();
+$.constant.ui.form.invalid = 'has_error';
+
 $.constant.convert = new Object();
 $.constant.convert.HankakuKana = new Array(
   // Byte上、２文字構成の半角カナ
